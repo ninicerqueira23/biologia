@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória - Interfase Celular</title>
+    <style>
+        body {
+            font-family:'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f7ff; /* Azul claro */
+            color: #333; /* Cor de texto padrão */
+        }
+
+        header {
+            background-color: #4e80b6; /* Azul forte */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 3em;
+            border-bottom: 2px solid #fff;
+        }
+
+        main {
+            padding: 20px;
+            margin: 50px;
+        }
+
+        .memory-game {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .memory-card {
+            width: 100px;
+            height: 100px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+
+        .memory-card-inner {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s;
+            transform-style: preserve-3d;
+            border-radius: 5px;
+        }
+
+        .memory-card.flip .memory-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .memory-card-front,
+        .memory-card-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 5px;
+        }
+
+        .memory-card-front {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .memory-card img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #4e80b6; /* Cor de fundo do rodapé */
+            color: #fff; /* Cor do texto do rodapé */
+            text-align: center; /* Alinhar o texto ao centro */
+            padding: 10px; /* Espaçamento interno */
+            position: fixed; /* Fixar o rodapé na parte inferior da página */
+            left: 0; /* Alinhar à esquerda */
+            bottom: 0; /* Alinhar na parte inferior */
+            width: 100%; /* Largura total */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jogo da Memória - Interfase Celular</h1>
+    </header>
+
+    <main>
+        <div class="memory-game">
+            <!-- Grid para as cartas do jogo -->
+            <div class="memory-grid">
+                <!-- Cartas -->
+                <div class="memory-card" data-framework="celula">
+                    <img src="img/istockphoto-1306045773-612x612-removebg-preview.png" alt="Célula">
+                </div>
+                <div class="memory-card" data-framework="dna">
+                    <img src="img/dna.png" alt="DNA">
+                </div>
+                <div class="memory-card" data-framework="g1">
+                    <img src="img/g1.png" alt="Fase G1">
+                </div>
+                <div class="memory-card" data-framework="sintese">
+                    <img src="img/sintese.png" alt="Síntese">
+                </div>
+                <div class="memory-card" data-framework="g2">
+                    <img src="img/g2.png" alt="Fase G2">
+                </div>
+                <div class="memory-card" data-framework="mitose">
+                    <img src="img/mitose.png" alt="Mitose">
+                </div>
+                <div class="memory-card" data-framework="interfase">
+                    <img src="img/interfase.png" alt="Interfase">
+                </div>
+                <div class="memory-card" data-framework="meiose">
+                    <img src="img/meiose.png" alt="Meiose">
+                </div>
+                <!-- Duplicando as cartas -->
+                <div class="memory-card" data-framework="celula">
+                    <img src="img/istockphoto-1306045773-612x612-removebg-preview.png" alt="Célula">
+                </div>
+                <div class="memory-card" data-framework="dna">
+                    <img src="img/dna.png" alt="DNA">
+                </div>
+                <div class="memory-card" data-framework="g1">
+                    <img src="img/g1.png" alt="Fase G1">
+                </div>
+                <div class="memory-card" data-framework="sintese">
+                    <img src="img/sintese.png" alt="Síntese">
+                </div>
+                <div class="memory-card" data-framework="g2">
+                    <img src="img/g2.png" alt="Fase G2">
+                </div>
+                <div class="memory-card" data-framework="mitose">
+                    <img src="img/mitose.png" alt="Mitose">
+                </div>
+                <div class="memory-card" data-framework="interfase">
+                    <img src="img/interfase.png" alt="Interfase">
+                </div>
+                <div class="memory-card" data-framework="meiose">
+                    <img src="img/meiose.png" alt="Meiose">
+                        </div>
+                    </div>
+                </div>
+                <!-- Adicione as outras cartas aqui -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 BioInforma - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const cards = document.querySelectorAll('.memory-card');
+
+        let hasFlippedCard = false;
+        let lockBoard = false;
+        let firstCard, secondCard;
+
+        function flipCard() {
+            if (lockBoard) return;
+            if (this === firstCard) return;
+
+            this.classList.add('flip');
+
+            if (!hasFlippedCard) {
+                hasFlippedCard = true;
+                firstCard = this;
+                return;
+            }
+
+            secondCard = this;
+            checkForMatch();
+        }
+
+        function checkForMatch() {
+            let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+            isMatch ? disableCards() : unflipCards();
+        }
+
+        function disableCards() {
+            firstCard.removeEventListener('click', flipCard);
+            secondCard.removeEventListener('click', flipCard);
+
+            resetBoard();
+        }
+
+        function unflipCards() {
+            lockBoard = true;
+
+            setTimeout(() => {
+                firstCard.classList.remove('flip');
+                secondCard.classList.remove('flip');
+
+                resetBoard();
+            }, 1500);
+        }
+
+        function resetBoard() {
+            [hasFlippedCard, lockBoard] = [false, false];
+            [firstCard, secondCard] = [null, null];
+        }
+
+        (function shuffle() {
+            cards.forEach(card => {
+                let randomPos = Math.floor(Math.random() * 16);
+                card.style.order = randomPos;
+            });
+        })();
+
+        cards.forEach(card => card.addEventListener('click', flipCard));
+    </script>
+</body>
+</html>

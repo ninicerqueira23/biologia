@@ -1,0 +1,154 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f7ff; /* Azul claro */
+    color: #333; /* Cor de texto padrão */
+}
+
+header {
+    background-color: #1a52bb; /* Azul forte */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 3em;
+    border-bottom: 2px solid #fff;
+}
+
+nav {
+    background-color: #c90505;
+    padding: 10px;
+    text-align: center;
+}
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0 10px;
+}
+nav a:hover {
+    color: #4e80b6;
+}
+.container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+main {
+    padding: 20px;
+    margin: 50px;
+}
+
+h1, h2 {
+    color: #ffffff; /* Azul forte */
+}
+
+p {
+    line-height: 1.6;
+    font-size: 20px;
+}
+
+.info-box {
+    flex: 1;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 20px;
+    border-width: 20px;
+    box-shadow: 10px 20px rgb(216, 216, 216);
+    margin-bottom: 25px;
+}
+
+.info-box h2 {
+    color: #4e80b6;
+}
+
+.definitions {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.definition-1 {
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: #f0f7ff;
+    border-radius: 10px;
+}
+.definition-2 {
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: #f0f7ff;
+    border-radius: 10px;
+}
+.definition-3 {
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: #f0f7ff;
+    border-radius: 10px;
+}
+
+.highlighted-title {
+    background-color: #4e80b6; /* Cor de fundo destacada */
+    color: #ffffff; /* Cor do texto */
+    padding: 10px; /* Espaçamento interno */
+    border-radius: 5px; /* Arredondamento das bordas */
+}
+
+.image-box {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: block; /* Garante que a margem automática funcione corretamente */
+        margin: 0 auto; /* Centraliza horizontalmente a imagem */
+}
+    
+.image-box-1 img {
+    width: 25%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: center; 
+    
+}
+
+.image-box-2 img {
+    width: 40%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.image-box-3 img {
+    width: 25%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.footer {
+    background-color: #4e80b6; /* Cor de fundo do rodapé */
+    color: #fff; /* Cor do texto do rodapé */
+    text-align: center; /* Alinhar o texto ao centro */
+    padding: 10px; /* Espaçamento interno */
+    position: fixed; /* Fixar o rodapé na parte inferior da página */
+    left: 0; /* Alinhar à esquerda */
+    bottom: 0; /* Alinhar na parte inferior */
+    width: 100%; /* Largura total */
+}
+
+.jogo-memoria-container {
+    text-align: center; /* Centralizar o conteúdo horizontalmente */
+    margin-bottom: 20px; /* Espaçamento entre o conteúdo principal e o atalho do jogo */
+}
+
+.btn-jogar {
+    background-color: #4e80b6; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    font-size: 20px; /* Tamanho da fonte do botão */
+    border: none; /* Remover borda do botão */
+    border-radius: 5px; /* Arredondar as bordas do botão */
+    cursor: pointer; /* Alterar cursor ao passar sobre o botão */
+}
+
+.btn-jogar:hover {
+    background-color: #36648B; /* Cor de fundo do botão ao passar o mouse */
+}

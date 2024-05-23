@@ -1,0 +1,642 @@
+<header>
+    <h1>BioInforma🧬</h1>
+    <h4>Explorando a Interfase em Biologia</h4>
+</header>
+<nav>
+    <a href="./index.html">Página Inicial</a>
+    <a href="./interfase.html">Interfase</a>
+    <a href="./mitose.html">Mitose</a>
+    <a href="./meiose.html">Meiose</a>
+    <a href="./jogos.html">Games</a>
+</nav>
+<style>
+    body {
+            font-family:'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #97e4fc; /* Azul claro */
+            color: #333; /* Cor de texto padrão */
+            align-items: center;
+        }
+
+        header {
+            background-color: #1a52bb; /* Azul do Facebook */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 3em;
+            border-bottom: 2px solid #fff;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        nav {
+            background-color: #d33131; /* Azul mais escuro */
+            padding: 10px;
+            text-align: center;
+            animation: fadeInLeft 1s ease-out;
+        }
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #0a3ba7; /* Amarelo */
+        }
+    section {
+        padding: 20px;
+    }
+    
+    img{
+        text-align: center;
+    }
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f7ff;
+    }
+
+        
+    
+
+    .container {
+        max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    text-align: center; /* Adicionando esta linha */
+}
+
+.item {
+            width: calc(33.33% - 20px);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .item .content {
+            padding: 20px;
+        }
+
+        .item h2 {
+            margin-top: 0;
+        }
+
+        .conteinerpho{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+.container.davi,
+.container.chupetinha,
+.container.chupeta {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto; /* Adicionando esta linha para centralizar horizontalmente */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.container.chupetinha {
+    background-color: #c7f2ff;
+}
+
+       
+        .caixa {
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin: 50px;
+            text-align: center;
+            display: inline-block;
+            width: 300px;
+            background-color: #d9effd;
+          }
+        
+          
+          .imagem {
+            width: 300px;
+            height: 200px;
+            margin-bottom: 10px;
+          }
+          
+          .profase {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+        }
+
+        .caixapro {
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin: 15px;
+            text-align: center;
+            width: 300px;
+            background-color: #d9effd;
+        }
+
+          .prometafase {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+        }
+
+        .box {
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            width: 300px;
+            background-color: #d9effd;
+        }
+
+        .metafase {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+        }
+
+        .caixameta {
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            width: 300px;
+            background-color: #d9effd;
+        }
+
+        .anafase {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+        }
+
+        .caixaana {
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            width: 300px;
+            background-color: #d9effd;
+        }
+
+        .telofase {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+        }
+
+        .caixatelo {
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            width: 300px;
+            background-color: #d9effd;
+        }
+
+  .caixa-grande {
+    border: 2px solid #ccc;
+    padding: 20px;
+    height: 90px;
+    margin: 20px;
+    width: 1000px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    gap: center;
+    
+  }
+ 
+
+.h3{
+    text-align: center;
+}
+
+.h2{
+    text-align: center;
+    width:20px;
+    height:20px;
+}
+.caixa-gigante {
+    border: 2px solid #ccc;
+    padding: 20px;
+    height: 90px;
+    margin: 20px;
+    width: 1720px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    gap: center;
+    
+  }
+
+  .containerp {
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto; /* Centraliza o container horizontalmente */
+}
+
+.itemp {
+    width: calc(50% - 20px); /* Reduzindo a largura para acomodar a margem */
+    margin: 10px; /* Espaçamento entre as caixas */
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background-color: #e6f0ff;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.itemp img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+}
+
+.itemp .content {
+    padding: 20px;
+}
+
+.itemp h2 {
+    margin-top: 0;
+}
+
+.itemp p {
+    margin-bottom: 0;
+}
+
+.videocon {
+    width: 100%;
+    max-width: 400px; /* Defina uma largura máxima para o vídeo */
+    margin: 10px; /* Espaçamento entre as caixas */
+    justify-content: center;
+    align-items: center;
+}
+
+.video {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+
+.contentp {
+    padding: 20px;
+}
+
+
+   
+</style>
+    
+</head>
+<body>
+
+    <div class="container davi">
+    <section>
+        <img src="./img/mitose.png" style="text-align: center;">
+        <h2>Mitose</h2>
+        <h3 style="font-size: 14px; line-height: 1.2;">"A mitose é um tipo de divisão celular que ocorre em todas as células eucarióticas e garante a formação de duas células-filhas. É um processo importante para o crescimento e regeneração de organismos multicelulares e para a reprodução assexuada de organismos unicelulares.
+
+            Apesar de ser um processo contínuo, a mitose pode ser dividida em quatro fases distintas: prófase, metáfase, anáfase e telófase. Esse processo inicia-se após o período de interfase, que compreende o momento entre duas fases de divisão celular.
+        </h3>
+    </section>
+</div>
+
+    <body>
+        <div class="header">
+          
+            
+        </div>
+        <div class="container">
+            <div class="item">
+                <img src="miu.jpg" alt="Imagem 1">
+                <div class="content">
+                    <h3>Imagem Ilustrativa mitose</h3>
+                   <p>Este processo de divisão celular é fundamental para manter a integridade genética e garantir a continuidade da vida. </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="mop.jpg" alt="Imagem 2">
+                <div class="content">
+                    <h3>Imagem Ilustrativa mitose</h3>
+                    <p>Nos unicelulares, a mitose tem a importante função de garantir a reprodução assexuada.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="div.jpg" alt="Imagem 3">
+                <div class="content">
+                    <h3>Imagem Ilustrativa mitose</h3>
+                    <p>É fundamental destacar que essas etapas são uma simplificação didática, pois a mitose é, na verdade, um processo contínuo. </p>
+                   
+                </div>
+            </div>
+            <!-- Adicione mais divs .item conforme necessário -->
+        </div>
+
+        <div class="container chupeta">
+        <section>
+            <div class="container chupetinha">
+            <h2>Diferentes Fases da Mitose</h2>
+        </div>
+
+            <h1>PRÓFASE</h1>
+            <p>"Na mitose, a prófase é o primeiro estágio, onde ocorrem várias mudanças na célula para prepará-la para a divisão celular. Durante a prófase, os cromossomos começam a se condensar, tornando-se mais curtos e visíveis sob o microscópio óptico. Essa condensação facilita a separação ordenada do material genético durante a divisão celular. Além disso, a membrana nuclear começa a se desintegrar, permitindo que os cromossomos se movam livremente pelo citoplasma da célula. Nesse estágio, também ocorre a formação do fuso mitótico, composto por microtúbulos polares e cinetocóricos. Os microtúbulos polares se estendem dos polos opostos da célula, enquanto os microtúbulos cinetocóricos se conectam aos centrômeros dos cromossomos. Os centrossomos, que contêm os centros organizadores de microtúbulos, também se movem para os polos opostos da célula durante a prófase, auxiliando na formação do fuso mitótico e na separação dos cromossomos durante a divisão celular. A prófase é um estágio crucial da mitose, pois prepara a célula para o alinhamento e segregação adequados dos cromossomos durante os estágios subsequentes da divisão celular."
+            </p>
+           
+                
+        </section>
+    </div>
+
+    <div class="profase">
+    <div class="caixapro">
+        <img src="profase1.png" alt="Imagem 1" class="imagem">
+        <p></p>
+    </div>
+      
+      <div class="caixa">
+        <img src="./img/hhh.png" alt="Imagem 2" class="imagem">
+        <p></p>
+      </div>
+
+      <div class="caixa">
+        <img src="./img/çop.jpg" alt="Imagem 2" class="imagem">
+        <p></p>
+      </div>
+
+    </div>
+
+
+          <div class="container chupeta">
+            <section>
+                <div class="container chupetinha">
+                <h2>Diferentes Fases da Mitose</h2>
+            </div>
+    
+                <h1>PROMETÁFASE</h1>
+                <p>"Na mitose, a pró-metáfase é um estágio crucial que antecede a metáfase. Durante esse período, ocorrem importantes eventos que preparam os cromossomos para a separação. Primeiramente, a membrana nuclear, que envolve os cromossomos no núcleo da célula, se desintegra completamente. Isso permite que os cromossomos fiquem livres para interagir com o fuso mitótico, uma estrutura formada por microtúbulos que ajudam na movimentação dos cromossomos durante a divisão celular. </p>
+
+                   <p> Em seguida, os microtúbulos do fuso mitótico se conectam aos cinetocoros, que são regiões especializadas localizadas nos centrômeros dos cromossomos. Essa conexão é essencial para garantir que os cromossomos se movam de maneira correta e ordenada durante a mitose. </p>
+                    
+                   <p>  Além disso, durante a pró-metáfase, os cromossomos começam a se mover em direção à placa metafásica, uma região central na célula onde os cromossomos se alinharão antes da separação durante a metáfase. Esse alinhamento é fundamental para garantir que cada célula filha receba o número correto de cromossomos após a divisão celular." </P>
+                
+               
+                    
+            </section>
+        </div>
+         
+       <div class="prometafase">
+        <div class="box">
+            <img src="./img/mitose-prometafase.webp" alt="Imagem 1" class="imagem">
+            <p>Texto descritivo da imagem 1.</p>
+          </div>
+          
+          <div class="box">
+            <img src="./img/Prometafase1-2.webp" alt="Imagem 2" class="imagem">
+            <p>Texto descritivo da imagem 2.</p>
+          </div>
+
+          <div class="caixa-gigante">
+            <h2>Bônus</h2>
+            <p>
+                A prófase é a primeira fase da mitose, que é um processo de divisão celular que resulta na formação de duas células filhas geneticamente idênticas. Durante a prófase, uma série de eventos preparatórios ocorre para garantir que a divisão celular ocorra de maneira ordenada e precisa. Aqui estão algumas das principais características da prófase:</p>
+          </div>
+                      </div>
+
+          <div class="container chupeta">
+            <section>
+                <div class="container chupetinha">
+                <h2>Diferentes Fases da Mitose</h2>
+            </div>
+    
+                <h1>METÁFASE</h1>
+                <p>"Na mitose, a metafase é a segunda fase, seguindo a prófase e precedendo a anáfase. Durante a metafase, os cromossomos condensados se alinham no plano equatorial da célula, conhecido como placa metafásica. Esse alinhamento é crucial para garantir que cada célula filha receba o número correto de cromossomos durante a divisão celular. Além disso, as fibras do fuso mitótico se ligam aos centrômeros dos cromossomos, preparando-se para separá-los durante a anáfase. A metafase é um estágio importante da mitose, assegurando a distribuição adequada do material genético entre as células filhas."
+                </p>
+               
+                    
+            </section>
+        </div>
+
+
+      <div class="metafase">
+        <div class="caixameta">
+            <img src="./img/metafase425.jpg" alt="Imagem 1" class="imagem">
+            <p>Texto descritivo da imagem 1.</p>
+          </div>
+          
+          <div class="caixa">
+            <img src="./img/metafaseeeeeee33.png" alt="Imagem 2" class="imagem">
+            <p>Texto descritivo da imagem 2.</p>
+          </div>
+
+          <div class="caixa">
+            <img src="./img/metafasee324.png" alt="Imagem 2" class="imagem">
+            <p>Texto descritivo da imagem 2.</p>
+          </div>
+</div>
+          <div class="caixa-gigante">
+            <h2>Bônus</h2>
+            <p>
+                A prófase é a primeira fase da mitose, que é um processo de divisão celular que resulta na formação de duas células filhas geneticamente idênticas. Durante a prófase, uma série de eventos preparatórios ocorre para garantir que a divisão celular ocorra de maneira ordenada e precisa. Aqui estão algumas das principais características da prófase:</p>
+          </div>
+
+
+          <div class="container chupeta">
+            <section>
+                <div class="container chupetinha">
+                <h2>Diferentes Fases da Mitose</h2>
+            </div>
+    
+                <h1>ANÁFASE</h1>
+                <p>"Na mitose, a anáfase é a terceira fase, seguindo a pró-metáfase e precedendo a telófase. Durante a anáfase, ocorre a separação dos cromossomos irmãos, que são cópias idênticas de cada cromossomo, para os polos opostos da célula. Isso é possível devido à enzima separadora das cromátides. Os microtúbulos do fuso mitótico encurtam-se, puxando os cromossomos irmãos em direção aos centríolos opostos, localizados em cada polo da célula.
+                    
+                    O resultado é que cada célula filha recebe um conjunto completo de cromossomos, que é essencial para a divisão celular bem-sucedida. A anáfase marca um ponto crítico na mitose, pois é quando a segregação do material genético é efetivamente realizada, garantindo que cada célula filha tenha a informação genética necessária para funcionar corretamente."
+                </p>
+               
+                    
+            </section>
+        </div>
+
+
+<div class="anafase">
+        <div class="caixaana">
+            <img src="./img/anafase345.jpg" alt="Imagem 1" class="imagem">
+            <p>Texto descritivo da imagem 1.</p>
+          </div>
+          
+          <div class="caixaana">
+            <img src="./img/anafase567.webp" alt="Imagem 2" class="imagem">
+            <p>Texto descritivo da imagem 2.</p>
+          </div>
+
+          <div class="caixaana">
+            <img src="./img/metafase123.jpg" alt="Imagem 2" class="imagem">
+            <p>Texto descritivo da imagem 2.</p>
+          </div>
+
+</div>
+
+          <div class="caixa-gigante">
+            <h2>Bônus</h2>
+            <p>
+                A prófase é a primeira fase da mitose, que é um processo de divisão celular que resulta na formação de duas células filhas geneticamente idênticas. Durante a prófase, uma série de eventos preparatórios ocorre para garantir que a divisão celular ocorra de maneira ordenada e precisa. Aqui estão algumas das principais características da prófase:</p>
+          </div>
+
+          <div class="container chupeta">
+            <section>
+                <div class="container chupetinha">
+                <h2>Diferentes Fases da Mitose</h2>
+            </div>
+    
+                <h1>TELÓFASE</h1>
+                <p>"Na mitose, a telófase é o estágio final, sucedendo a anáfase. Durante esse período, ocorrem importantes eventos que levam à formação de duas células filhas. Primeiramente, os cromossomos começam a descondensar, perdendo sua forma compacta e se estendendo novamente em filamentos. Simultaneamente, a membrana nuclear começa a se reconstituir ao redor de cada conjunto de cromossomos, restaurando os núcleos das células filhas. </P>
+
+                    <P>Além disso, inicia-se o processo de citocinese, que é a divisão do citoplasma. Em células animais, isso é caracterizado pela formação de uma fenda na membrana plasmática, conhecida como cleavage furrow. Em células vegetais, ocorre a formação de uma placa celular no centro da célula, que eventualmente se transformará em uma nova parede celular. </P>
+                    
+                    <p>Conforme a telófase avança, a célula mãe é restaurada às suas condições normais, incluindo a reorganização dos organelos e a retomada das atividades celulares regulares. Ao final da telófase, duas células filhas geneticamente idênticas foram formadas, prontas para continuar seu ciclo celular ou desempenhar suas funções específicas no organismo." </P>
+               
+               
+            </section>
+        </div>
+
+<div class="telofase">
+        <div class="caixatelo">
+            <img src="telophase1.jpg" alt="Imagem 1" class="imagem">
+            <p>Texto descritivo da imagem 1.</p>
+          </div>
+          
+          <div class="caixa">
+            <img src="./img/telofase124.jpg" alt="Imagem 2" class="imagem">
+            <p>Texto descritivo da imagem 2.</p>
+          </div>
+
+          <div class="caixa">
+            <img src="telophase4.jpg" alt="Imagem 2" class="imagem">
+            <p>Texto descritivo da imagem 2.</p>
+          </div>
+        
+        </div>
+
+
+          <div class="caixa-gigante">
+            <h2>ABAIXO TEM ALGUMAS IMAGENS REPRESENTATIVAS SOBRE AS FASES DA MITOSE</h2>
+            <p>
+               
+Imagens representativas desempenham um papel crucial em diversas áreas, desde comunicação e publicidade até arte e ciência. Elas têm o poder de transmitir ideias complexas, despertar emoções e contar histórias de maneira visualmente impactante. Por meio de cores, formas, composição e simbolismo, as imagens representativas capturam a essência de um conceito ou mensagem e a comunicam de forma eficaz.</p>
+          </div>
+
+
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+        
+        <div class="containerp">
+            <div class="itemp">
+                <img src="./img/profase000.webp" alt="Imagem 1">
+                <div class="content">
+                    <h2>Prófase</h2>
+                    <p>"Nessa etapa, que é a mais longa da mitose, observa-se a condensação do DNA que foi duplicado no período da interfase."</p>
+                </div>
+            </div>
+            <div class="itemp">
+                <img src="./img/metafase425.jpg" alt="Imagem 2">
+                <div class="content">
+                    <h2>Metáfase</h2>
+                    <p>"Nessa etapa da mitose, os cromossomos migram para o plano equatorial da célula."</p>
+                </div>
+            </div>
+            
+            <div class="itemp">
+                <img src="./img/metafase123.jpg" alt="Imagem 3">
+                <div class="content">
+                    <h2>Anáfase</h2>
+                    <p>"os cromossomos separam-se, e cada cromátide segue em direção ao polo da célula."</p>
+                </div>
+            </div>
+            
+            <div class="itemp">
+                <img src="./img/telofase124.jpg" alt="Imagem 1">
+                <div class="content">
+                    <h2>Telófase</h2>
+                    <p>"ocorre reconstrução dos envoltórios nucleares, descondensação dos cromossomos e a reconstrução do nucléolo."</p>
+                </div>
+        </div>
+
+           
+        <div class="container">
+            
+            <div class="videocon">
+                <video controls>
+                    <source src="./video/Mitose em 3D.mp4" type="video/mp4">
+                    
+                </video>
+            </div>
+                <div class="contentp">
+                   
+                    
+                </div>
+            </div>
+            
+           
+        </div>
+
+    
+
+</body>
+</html>

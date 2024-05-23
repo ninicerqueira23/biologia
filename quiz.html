@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Quiz</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f0f7ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        header {
+            background-color: #4e80b6;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 3em;
+            border-bottom: 2px solid #fff;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        .quiz-container {
+            background-color: #fff;
+            border: 2px solid #4e80b6;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .question {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options li {
+            margin-bottom: 10px;
+        }
+
+        .option {
+            display: inline-block;
+            width: 90%;
+            padding: 10px;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .option:hover {
+            background-color: #4e80b6;
+        }
+
+        .option.correct {
+            background-color: #4caf50;
+        }
+
+        .option.wrong {
+            background-color: #f44336;
+        }
+
+        .result {
+            font-size: 1.5rem;
+            color: #4e80b6;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .result.fail {
+            color: #f44336;
+        }
+
+        .button {
+            background-color: #4e80b6;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #3a6699;
+        }
+    </style>
+</head>
+<body>
+    <header>Jogo de Quiz</header>
+    <div class="container">
+        <div class="quiz-container" id="quiz-container">
+            <div class="question" id="question">Pergunta aqui</div>
+            <ul class="options" id="options"></ul>
+            <button class="button" id="next-button" style="display: none;">Próxima</button>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        const quizData = [
+            {
+                question: "Qual é a principal função da meiose?",
+                options: ["Crescimento e reparação de tecidos", "Produção de células somáticas", "Produção de gametas", "Regulação do ciclo celular"],
+                correct: "Produção de gametas"
+            },
+            {
+                question: "Quantas divisões celulares ocorrem durante a meiose?",
+                options: ["1", "2", "3", "4"],
+                correct: "2"
+            },
+            {
+                question: "Durante qual fase da meiose ocorre o crossing-over?",
+                options: ["Prófase I", "Metáfase I", "Anáfase I", "Telófase I"],
+                correct: "Prófase I"
+            },
+            {
+                question: "Qual das seguintes afirmativas sobre a meiose é verdadeira?",
+                options: ["Produz quatro células filhas idênticas", "Produz duas células filhas idênticas", "Produz quatro células filhas geneticamente diferentes", "Produz duas células filhas geneticamente diferentes"],
+                correct: "Produz quatro células filhas geneticamente diferentes"
+            },
+            {
+                question: "Quantos cromossomos estão presentes nas células filhas após a meiose em humanos?",
+                options: ["23", "46", "21", "12"],
+                correct: "23"
+            },
+            {
+                question: "Qual das fases seguintes não faz parte da meiose?",
+                options: ["Prófase I", "Metáfase II", "Anáfase II", "Telófase III"],
+                correct: "Telófase III"
+            },
+            {
+                question: "O que acontece durante a anáfase I da meiose?",
+                options: ["Os cromossomos homólogos se separam e vão para os pólos opostos da célula", "As cromátides irmãs se separam e vão para os pólos opostos da célula", "O envelope nuclear se reforma", "O crossing-over ocorre"],
+                correct: "Os cromossomos homólogos se separam e vão para os pólos opostos da célula"
+            },
+            {
+                question: "Qual é o resultado final da meiose?",
+                options: ["Duas células diploides", "Quatro células diploides", "Duas células haploides", "Quatro células haploides"],
+                correct: "Quatro células haploides"
+            },
+            {
+                question: "Qual é a diferença principal entre a meiose I e a meiose II?",
+                options: ["Meiose I reduz o número de cromossomos pela metade, enquanto a meiose II separa as cromátides irmãs", "Meiose I envolve crossing-over, enquanto a meiose II não", "Meiose II resulta em células geneticamente idênticas, enquanto a meiose I não", "Meiose II ocorre antes da meiose I"],
+                correct: "Meiose I reduz o número de cromossomos pela metade, enquanto a meiose II separa as cromátides irmãs"
+            },
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        const quizContainer = document.getElementById('quiz-container');
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const nextButton = document.getElementById('next-button');
+        const resultElement = document.getElementById('result');
+
+        function loadQuestion() {
+            const currentQuestion = quizData[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = '';
+            currentQuestion.options.forEach(option => {
+                const optionElement = document.createElement('li');
+                optionElement.textContent = option;
+                optionElement.classList.add('option');
+                optionElement.addEventListener('click', () => selectOption(optionElement, currentQuestion.correct));
+                optionsElement.appendChild(optionElement);
+            });
+            nextButton.style.display = 'none';
+        }
+
+        function selectOption(selectedElement, correctAnswer) {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.classList.add(option.textContent === correctAnswer ? 'correct' : 'wrong');
+                option.removeEventListener('click', selectOption);
+            });
+            if (selectedElement.textContent === correctAnswer) {
+                score++;
+            }
+            nextButton.style.display = 'block';
+        }
+
+        nextButton.addEventListener('click', () => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        });
+
+        function showResult() {
+            quizContainer.style.display = 'none';
+            resultElement.textContent = `Você acertou ${score} de ${quizData.length} perguntas.`;
+            resultElement.classList.add(score === quizData.length ? 'success' : 'fail');
+            resultElement.style.display = 'block';
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>

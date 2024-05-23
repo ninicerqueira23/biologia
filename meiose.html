@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meiose - BioInforma</title>
+    <style>
+        body {
+            font-family:'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d4e6fc; /* Azul claro */
+            color: #333; /* Cor de texto padrão */
+        }
+
+        header {
+            background-color: #1a52bb; /* Azul do Facebook */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 3em;
+            border-bottom: 2px solid #fff;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        nav {
+            background-color: #d33131; /* Azul mais escuro */
+            padding: 10px;
+            text-align: center;
+            animation: fadeInLeft 1s ease-out;
+        }
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #0a3ba7; /* Amarelo */
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background-color: #e6f0ff; /* Azul claro */
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+            animation: slideInRight 1s ease-out;
+        }
+
+        h1, h2, h3, h4, p {
+            margin-bottom: 20px;
+        }
+
+        .image-box {
+            text-align: center;
+            margin-bottom: 20px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            border-radius: 15px; /* Bordas arredondadas */
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3); /* Sombra */
+            animation: fadeIn 1s ease-out;
+        }
+
+        .content p, .content ul {
+            font-size: 1.1em; /* Aumenta o tamanho da fonte */
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BioInforma🧬</h1>
+        <h4>Explorando a Interfase em Biologia</h4>
+    </header>
+    <nav>
+        <a href="./index.html">Página Inicial</a>
+        <a href="./interfase.html">Interfase</a>
+        <a href="./mitose.html">Mitose</a>
+        <a href="./meiose.html">Meiose</a>
+        <a href="./jogos.html">Games</a>
+    </nav>
+    <main>
+        <div class="content">
+            <h2>O que é Meiose?</h2>
+            <p>A meiose é um processo de divisão celular que ocorre em organismos eucarióticos, resultando na formação de células haploides a partir de células diploides. Este processo é essencial para a reprodução sexual e contribui para a diversidade genética das espécies.</p>
+        </div>
+        <div class="content">
+            <h2>Fases da Meiose</h2>
+            <div class="image-box">
+                <img src="img/meiose2.png" alt="Fases da Meiose">
+            </div>
+            <p>A meiose é dividida em duas etapas principais: meiose I e meiose II. Cada etapa possui várias fases:</p>
+            <h3>Meiose I:</h3>
+            <p>Na meiose I, ocorre a separação dos cromossomos homólogos. As fases incluem:</p>
+            <ul>
+                <li><strong>Prófase I:</strong> Durante esta fase, os cromossomos homólogos se pareiam e trocam segmentos de DNA em um processo chamado crossing-over.</li>
+                <li><strong>Metáfase I:</strong> Os cromossomos homólogos alinham-se no equador da célula, orientados de forma independente.</li>
+                <li><strong>Anáfase I:</strong> Os cromossomos homólogos se separam e migram para os pólos opostos da célula.</li>
+                <li><strong>Telófase I:</strong> Nesta fase, os cromossomos chegam aos pólos e formam dois novos núcleos, resultando em duas células haploides.</li>
+            </ul>
+            <div class="image-box">
+                <img src="img/Meiose_1.jpg" alt="Meiose I">
+            </div>
+            <h3>Meiose II:</h3>
+            <p>Na meiose II, ocorre a separação das cromátides irmãs. As fases incluem:</p>
+            <ul>
+                <li><strong>Prófase II:</strong> Os núcleos reformam e as cromátides irmãs condensam-se novamente.</li>
+                <li><strong>Metáfase II:</strong> As cromátides irmãs alinham-se no equador da célula.</li>
+                <li><strong>Anáfase II:</strong> As cromátides irmãs se separam e migram para os pólos opostos da célula.</li>
+                <li><strong>Telófase II:</strong> Os cromossomos chegam aos pólos e formam quatro novas células haploides, cada uma com metade do número de cromossomos da célula original.</li>
+            </ul>
+            <div class="image-box">
+                <img src="img/Meiose_2.jpg" alt="Meiose II">
+            </div>
+            <h3>Diferenças Principais entre Meiose I e Meiose II:</h3>
+            <p>Embora a meiose I e a meiose II compartilhem algumas semelhanças em termos de processo, existem diferenças importantes entre elas:</p>
+            <ul>
+                <li>Na meiose I, ocorre a separação dos cromossomos homólogos, enquanto na meiose II, ocorre a separação das cromátides irmãs.</li>
+                <li>A meiose I envolve um evento chamado crossing-over, que promove a recombinação genética, enquanto a meiose II não envolve crossing-over.</li>
+                <li>Na meiose I, o número de cromossomos é reduzido à metade, resultando em células haploides, enquanto na meiose II, o número de cromossomos permanece o mesmo, mas o DNA é dividido em duas células haploides.</li>
+                <li>A meiose II é essencialmente uma repetição da meiose I, mas sem a replicação do DNA entre as divisões.</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h2>Importância da Meiose</h2>
+            <p>A meiose é importante por vários motivos:</p>
+            <ul>
+                <li><h4>Produção de gametas:</h4>A meiose produz gametas haploides, como espermatozoides e óvulos, que são essenciais para a reprodução sexual.</li>
+                <li><h4>Variação genética:</h4> Durante a meiose, ocorrem eventos como crossing-over e segregação independente, que resultam na recombinação genética e na criação de descendentes geneticamente diferentes.</li>
+                <li><h4>Manutenção do número cromossômico:</h4> A meiose garante que o número cromossômico seja reduzido pela metade nas células resultantes, o que é crucial para a formação de embriões com o número correto de cromossomos.</li>
+            </ul>
+            <div class="image-box">
+                <img src="img/gametonese.webp" alt="Gametas">
+            </div>
+        </div>
+    </main>
+</body>
+</html>

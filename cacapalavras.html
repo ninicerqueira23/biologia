@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caça-palavras</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 10;
+            padding: 10;
+            background-color: #f0f7ff; /* Azul claro */
+            color: #333; /* Cor de texto padrão */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #4e80b6; /* Azul forte */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 3em;
+            border-bottom: 2px solid #fff;
+            width: 100%;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .word-search {
+            display: grid;
+            grid-template-columns: repeat(15, 40px);
+            grid-gap: 2px;
+            margin: 20px;
+        }
+
+        .cell {
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: 2px solid #333;
+            transition: background-color 0.3s;
+        }
+
+        .cell.selected {
+            background-color: #4e80b6;
+        }
+
+        .word-list {
+            margin: 20px;
+        }
+
+        .word-list h3 {
+            margin-bottom: 10px;
+            color: #4e80b6;
+        }
+
+        .word-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .word-list li {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 2rem;
+            color: rgb(18, 139, 18);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Caça-palavras</h1>
+    </header>
+    <div class="content">
+        <div class="word-list">
+            <h3>Palavras a encontrar:</h3>
+            <ul id="word-list">
+                <li>MITOSE</li>
+                <li>MEIOSE</li>
+                <li>INTERFASE</li>
+                <li>DNA</li>
+                <li>RNA</li>
+            </ul>
+        </div>
+        <div id="word-search" class="word-search"></div>
+    </div>
+    <div id="message" class="message">Parabéns, você venceu!</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const words = ['MITOSE', 'MEIOSE', 'INTERFASE', 'DNA', 'RNA'];
+            const foundWords = new Set();
+            const gridSize = 15;
+            const grid = Array(gridSize).fill(null).map(() => Array(gridSize).fill(''));
+
+            function placeWord(word) {
+                let placed = false;
+                while (!placed) {
+                    const direction = Math.floor(Math.random() * 2); // 0: horizontal, 1: vertical
+                    const row = Math.floor(Math.random() * gridSize);
+                    const col = Math.floor(Math.random() * (gridSize - word.length));
+
+                    if (direction === 0) { // horizontal
+                        if (col + word.length <= gridSize && grid[row].slice(col, col + word.length).every(cell => cell === '')) {
+                            for (let i = 0; i < word.length; i++) {
+                                grid[row][col + i] = word[i];
+                            }
+                            placed = true;
+                        }
+                    } else { // vertical
+                        if (row + word.length <= gridSize && grid.slice(row, row + word.length).every(row => row[col] === '')) {
+                            for (let i = 0; i < word.length; i++) {
+                                grid[row + i][col] = word[i];
+                            }
+                            placed = true;
+                        }
+                    }
+                }
+            }
+
+            words.forEach(placeWord);
+
+            for (let i = 0; i < gridSize; i++) {
+                for (let j = 0; j < gridSize; j++) {
+                    if (grid[i][j] === '') {
+                        grid[i][j] = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+                    }
+                }
+            }
+
+            const wordSearch = document.getElementById('word-search');
+
+            grid.forEach((row, i) => {
+                row.forEach((cell, j) => {
+                    const cellElement = document.createElement('div');
+                    cellElement.classList.add('cell');
+                    cellElement.textContent = cell;
+                    cellElement.dataset.row = i;
+                    cellElement.dataset.col = j;
+                    wordSearch.appendChild(cellElement);
+                });
+            });
+
+            let selectedCells = [];
+
+            wordSearch.addEventListener('click', (e) => {
+                if (e.target.classList.contains('cell')) {
+                    e.target.classList.toggle('selected');
+                    const row = e.target.dataset.row;
+                    const col = e.target.dataset.col;
+                    const cell = { row, col, letter: e.target.textContent };
+                    const index = selectedCells.findIndex(c => c.row == row && c.col == col);
+                    if (index === -1) {
+                        selectedCells.push(cell);
+                    } else {
+                        selectedCells.splice(index, 1);
+                    }
+
+                    checkWord();
+                }
+            });
+
+            function checkWord() {
+                const selectedWord = selectedCells.map(cell => cell.letter).join('');
+                const reversedWord = selectedCells.map(cell => cell.letter).reverse().join('');
+
+                if (words.includes(selectedWord) || words.includes(reversedWord)) {
+                    selectedCells.forEach(cell => {
+                        const cellElement = document.querySelector(`.cell[data-row='${cell.row}'][data-col='${cell.col}']`);
+                        cellElement.style.backgroundColor = '#4caf50';
+                    });
+                    foundWords.add(selectedWord);
+                    foundWords.add(reversedWord);
+                    selectedCells = [];
+
+                    updateWordList(selectedWord);
+                    updateWordList(reversedWord);
+                    checkWin();
+                }
+            }
+
+            function updateWordList(word) {
+                const wordListItems = document.querySelectorAll('#word-list li');
+                wordListItems.forEach(item => {
+                    if (item.textContent.toUpperCase() === word.toUpperCase()) {
+                        item.style.textDecoration = 'line-through';
+                        item.style.color = 'grey';
+                    }
+                });
+            }
+
+            function checkWin() {
+                if (foundWords.size === words.length * 2) {
+                    document.getElementById('message').style.display = 'block';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
